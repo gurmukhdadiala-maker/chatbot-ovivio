@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Ovivio Support Assistant</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .header {
+      height: 60px;
+      background: #1f4fa3;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      font-size: 20px;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .subtext {
+      padding: 12px 24px;
+      color: #5b6575;
+      font-size: 14px;
+      background: white;
+      border-bottom: 1px solid #e5e9f2;
+    }
+
+    .chat-placeholder {
+      height: calc(100vh - 110px);
+      position: relative;
+    }
+
+    /* Makes Zendesk widget feel integrated */
+    iframe {
+      border: none !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    Ovivio Support Assistant
+  </div>
+
+  <div class="subtext">
+    Get instant guidance for placements, billing, workflows, and operational support.
+  </div>
+
+  <div class="chat-placeholder"></div>
+
+  <script>
+    window.zESettings = {
+      webWidget: {
+        chat: {
+          suppress: false
+        },
+        launcher: {
+          mobile: {
+            hideWhenOffline: false
+          }
+        }
+      }
+    };
+  </script>
+
+  <script
+    id="ze-snippet"
+    src="https://static.zdassets.com/ekr/snippet.js?key=2c76e3e9-9c41-451a-ab43-c2dc60be992e">
+  </script>
+
+  <script>
+    window.onload = function () {
+
+      if (window.zE) {
+
+        // Open widget automatically
+        window.zE('webWidget', 'open');
+
+        // Optional: hide launcher bubble after opening
+        window.zE('webWidget', 'hide');
+
+      }
+
+    };
+  </script>
+
+</body>
+</html>
